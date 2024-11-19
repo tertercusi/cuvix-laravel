@@ -19,7 +19,7 @@ new class extends Component {
     public function getPosts()
     {
         $this->posts = Post::with('user')
-            ->where('user_id', '=', auth()->id())
+            ->whereBelongsTo(auth()->user())
             ->latest()
             ->get();
     }
