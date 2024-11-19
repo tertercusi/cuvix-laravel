@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('My Profile') }}
+            {{ __('Timeline') }}
         </h2>
     </x-slot>
 
@@ -17,9 +17,10 @@
             </div>
 
         </div>
-        <div class="grow flex flex-col bg-white p-4 rounded-md shadow-md">
-            <div class="text-lg font-semibold mb-4"> {{__('Create Post')}} </div>
-            <livewire:posts.create />
+
+        <div class="flex flex-col grow">
+            <x-post-card></x-post-card>
+            <livewire:posts.timeline />
         </div>
     </div>
 </x-app-layout>

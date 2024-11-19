@@ -6,17 +6,19 @@ new class extends Component {
     #[Validate('required|string|max:255')]
     public string $message = '';
 
-    public function store() {
+    public function store()
+    {
         $validated = $this->validate();
 
         auth()->user()->posts()->create($validated);
         $this->message = '';
+        $this->dispatch('post-created');
     }
 }
 ?>
 
 <div>
-    <form wire:submit="$store">
+    <form wire:submit="store">
         <textarea
             wire:model="message"
             placeholder="{{ __('What\'s on your mind?') }}"
