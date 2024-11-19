@@ -6,9 +6,9 @@
     </x-slot>
 
     <div class="py-6 max-w-5xl mx-auto flex flex-row justify-center gap-5">
-        <div class="min-w-96 flex flex-col">
+        <div class="min-w-96 flex-initial flex flex-col">
             <div class=" bg-white p-4 rounded-md shadow-md">
-                <div class="text-lg font-semibold mb-4">About Me</div>
+                <div class="text-lg font-semibold mb-4"> {{__('About Me')}} </div>
 
                 <div class="flex flex-col divide-y divide-solid">
                     <x-user-info title="Username" :description="Auth::user()->name" />
@@ -17,8 +17,9 @@
             </div>
 
         </div>
-        <div class="grow flex flex-col">
-            <span>Your Timeline</span>
+        <div class="grow flex flex-col bg-white p-4 rounded-md shadow-md">
+            <div class="text-lg font-semibold mb-4"> {{__('Create Post')}} </div>
+            <livewire:posts.create />
         </div>
     </div>
 </x-app-layout>
