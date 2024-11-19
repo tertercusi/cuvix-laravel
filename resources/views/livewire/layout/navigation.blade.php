@@ -27,9 +27,9 @@ new class extends Component
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>
-
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+            </div>
+            <!-- Navigation Links -->
+            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Profile') }}
                     </x-nav-link>
@@ -37,7 +37,6 @@ new class extends Component
                     <x-nav-link :href="route('posts')" :active="request()->routeIs('posts')" wire:navigate>
                         {{ __('Feed') }}
                     </x-nav-link>
-                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -86,7 +85,10 @@ new class extends Component
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
-                {{ __('Dashboard') }}
+                {{ __('Profile') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('posts')" :actuve="request()->routeIs('posts')">
+                {{ __('Feed') }}
             </x-responsive-nav-link>
         </div>
 
@@ -99,7 +101,7 @@ new class extends Component
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile')" wire:navigate>
-                    {{ __('Profile') }}
+                    {{ __('Settings') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
